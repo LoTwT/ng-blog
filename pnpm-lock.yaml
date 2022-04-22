@@ -1,18 +1,20 @@
 lockfileVersion: 5.3
 
-specifiers:
-  husky: ^7.0.4
-  lint-staged: ^12.3.8
-  pnpm: ^6.32.8
-  prettier: ^2.6.2
-  typescript: ^4.6.3
+importers:
 
-devDependencies:
-  husky: 7.0.4
-  lint-staged: 12.3.8
-  pnpm: 6.32.8
-  prettier: 2.6.2
-  typescript: 4.6.3
+  .:
+    specifiers:
+      husky: ^7.0.4
+      lint-staged: ^12.4.0
+      pnpm: ^6.32.9
+      prettier: ^2.6.2
+      typescript: ^4.6.3
+    devDependencies:
+      husky: 7.0.4
+      lint-staged: 12.4.0
+      pnpm: 6.32.9
+      prettier: 2.6.2
+      typescript: 4.6.3
 
 packages:
 
@@ -219,8 +221,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /lint-staged/12.3.8:
-    resolution: {integrity: sha512-0+UpNaqIwKRSGAFOCcpuYNIv/j5QGVC+xUVvmSdxHO+IfIGoHbFLo3XcPmV/LLnsVj5EAncNHVtlITSoY5qWGQ==}
+  /lint-staged/12.4.0:
+    resolution: {integrity: sha512-3X7MR0h9b7qf4iXf/1n7RlVAx+EzpAZXoCEMhVSpaBlgKDfH2ewf+QUm7BddFyq29v4dgPP+8+uYpWuSWx035A==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     hasBin: true
     dependencies:
@@ -338,8 +340,8 @@ packages:
     hasBin: true
     dev: true
 
-  /pnpm/6.32.8:
-    resolution: {integrity: sha512-pZroJtqqZDevFpJI/PsOMLLfGeA6en6cvyI/HC7boGmT7TJy9eFInNYwMGW2enKv2Al/aamV2Zomv05TtBe7qw==}
+  /pnpm/6.32.9:
+    resolution: {integrity: sha512-fU/urJXv2Q8l4n8FW4Qx54KGDTVMpa3n7azqa7i65XZtG5Mcpa35D+HTmAL/7G3u/3R9WGPG4CdLU7631Ti6aA==}
     engines: {node: '>=12.17'}
     hasBin: true
     dev: true
@@ -365,7 +367,7 @@ packages:
   /rxjs/7.5.5:
     resolution: {integrity: sha512-sy+H0pQofO95VDmFLzyaw9xNJU4KTRSwQIGM6+iG3SypAtCiLDzpeG8sJrNCWn2Up9km+KhkvTdbkrdy+yzZdw==}
     dependencies:
-      tslib: 2.3.1
+      tslib: 2.4.0
     dev: true
 
   /shebang-command/2.0.0:
@@ -468,8 +470,8 @@ packages:
       is-number: 7.0.0
     dev: true
 
-  /tslib/2.3.1:
-    resolution: {integrity: sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw==}
+  /tslib/2.4.0:
+    resolution: {integrity: sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==}
     dev: true
 
   /type-fest/0.21.3:
