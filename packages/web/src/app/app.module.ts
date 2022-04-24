@@ -1,6 +1,5 @@
 import { NgModule } from "@angular/core"
 import { BrowserModule } from "@angular/platform-browser"
-
 import { AppRoutingModule } from "./app-routing.module"
 import { AppComponent } from "./app.component"
 import { NavbarComponent } from "./navbar/navbar.component"
@@ -12,6 +11,9 @@ import { SidebarComponent } from "./sidebar/sidebar.component"
 import { MatButtonToggleModule } from "@angular/material/button-toggle"
 import { ContentComponent } from "./content/content.component"
 import { AddonComponent } from "./addon/addon.component"
+import { AphorismComponent } from "./aphorism/aphorism.component"
+import { SwiperComponent } from "./swiper/swiper.component"
+import { ArticleItemComponent } from "./article-item/article-item.component"
 
 @NgModule({
   declarations: [
@@ -21,6 +23,9 @@ import { AddonComponent } from "./addon/addon.component"
     SidebarComponent,
     ContentComponent,
     AddonComponent,
+    AphorismComponent,
+    SwiperComponent,
+    ArticleItemComponent,
   ],
   imports: [
     BrowserModule,
