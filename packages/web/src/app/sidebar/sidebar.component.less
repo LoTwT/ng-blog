@@ -1,0 +1,36 @@
+.button-group {
+  display: flex;
+  flex-direction: column;
+  border: none;
+}
+
+::ng-deep .mat-button-toggle-label-content {
+  width: 100%;
+  padding: 0 !important;
+}
+
+mat-button-toggle {
+  border-left: none !important;
+  margin: 8px 0;
+}
+
+.mat-button-toggle-appearance-standard {
+  background: transparent;
+}
+
+.mat-button-toggle-checked {
+  color: rgb(47, 129, 244);
+  background: white;
+}
+
+.button-content {
+  padding: 0 16px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 16px;
+
+  .content-icon {
+    margin-right: 16px;
+  }
+}

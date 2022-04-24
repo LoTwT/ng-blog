@@ -8,15 +8,23 @@ import { SidetoolsComponent } from "./sidetools/sidetools.component"
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
 import { MatButtonModule } from "@angular/material/button"
 import { MatIconModule } from "@angular/material/icon"
+import { SidebarComponent } from "./sidebar/sidebar.component"
+import { MatButtonToggleModule } from "@angular/material/button-toggle"
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, SidetoolsComponent],
+  declarations: [
+    AppComponent,
+    NavbarComponent,
+    SidetoolsComponent,
+    SidebarComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatIconModule,
+    MatButtonToggleModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
