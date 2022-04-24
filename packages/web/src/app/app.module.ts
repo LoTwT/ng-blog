@@ -10,6 +10,8 @@ import { MatButtonModule } from "@angular/material/button"
 import { MatIconModule } from "@angular/material/icon"
 import { SidebarComponent } from "./sidebar/sidebar.component"
 import { MatButtonToggleModule } from "@angular/material/button-toggle"
+import { ContentComponent } from "./content/content.component"
+import { AddonComponent } from "./addon/addon.component"
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { MatButtonToggleModule } from "@angular/material/button-toggle"
     NavbarComponent,
     SidetoolsComponent,
     SidebarComponent,
+    ContentComponent,
+    AddonComponent,
   ],
   imports: [
     BrowserModule,
