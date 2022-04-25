@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core"
 import { ActivatedRoute, Router } from "@angular/router"
 import { Nullable } from "src/types"
+import { IArticle } from "src/types/article"
 
 @Component({
   selector: "article-detail",
@@ -29,9 +30,4 @@ export class ArticleDetailComponent implements OnInit {
       content: "这是文章的内容",
     }
   }
-}
-
-interface IArticle {
-  title: string
-  content: string
 }

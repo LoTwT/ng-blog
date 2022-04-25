@@ -1,38 +1,41 @@
-<div class="article-item">
-  <img
-    class="image"
-    src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.jj20.com%2Fup%2Fallimg%2F1113%2F052420110515%2F200524110515-2-1200.jpg&refer=http%3A%2F%2Fimg.jj20.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1653384807&t=87598e840ee20c2bc1d1d2fc5246b5b1"
-    alt="article-img"
-  />
+<div *ngIf="article; else articleItemLoading" class="article-item">
+  <img class="image" [src]="article.img" [alt]="article.title" />
 
   <div class="content">
-    <div class="title">Take me, Anywhere</div>
-    <div class="subTitle">带我走，去风里</div>
+    <div class="title">{{ article.title }}</div>
+    <div class="subTitle">{{ article.subTitle }}</div>
     <div class="info">
+      <!-- 创建时间 -->
       <div class="info-item">
-        <mat-icon class="info-item-icon">watch_later</mat-icon>
-        <span class="info-item-text">2018/7/19 上午</span>
+        <mat-icon class="info-item-icon">{{ article.createAtIcon }}</mat-icon>
+        <span class="info-item-text">{{ article.createAt }}</span>
       </div>
 
+      <!-- 阅读数 -->
       <div class="info-item">
-        <mat-icon class="info-item-icon">visibility</mat-icon>
-        <span class="info-item-text">207</span>
+        <mat-icon class="info-item-icon">{{ article.watchIcon }}</mat-icon>
+        <span class="info-item-text">{{ article.watchCount }}</span>
       </div>
 
+      <!-- 评论数 -->
       <div class="info-item">
-        <mat-icon class="info-item-icon">textsms</mat-icon>
-        <span class="info-item-text">0</span>
+        <mat-icon class="info-item-icon">{{ article.commentIcon }}</mat-icon>
+        <span class="info-item-text">{{ article.commentCount }}</span>
       </div>
 
+      <!-- 点赞数 -->
       <div class="info-item">
-        <mat-icon class="info-item-icon">favorite</mat-icon>
-        <span class="info-item-text">8</span>
+        <mat-icon class="info-item-icon">{{ article.favorIcon }}</mat-icon>
+        <span class="info-item-text">{{ article.favorCount }}</span>
       </div>
 
+      <!-- 作者 -->
       <div class="info-item">
-        <mat-icon class="info-item-icon">list</mat-icon>
-        <span class="info-item-text">author</span>
+        <mat-icon class="info-item-icon">{{ article.authorIcon }}</mat-icon>
+        <span class="info-item-text">{{ article.author }}</span>
       </div>
     </div>
   </div>
 </div>
+
+<ng-template #articleItemLoading> <div>loading...</div> </ng-template>

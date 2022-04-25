@@ -1,4 +1,6 @@
-import { Component, OnInit } from "@angular/core"
+import { Component, Input, OnInit } from "@angular/core"
+import { Nullable } from "src/types"
+import { IBriefArticle } from "src/types/article"
 
 @Component({
   selector: "article-item",
@@ -6,7 +8,11 @@ import { Component, OnInit } from "@angular/core"
   styleUrls: ["./article-item.component.less"],
 })
 export class ArticleItemComponent implements OnInit {
+  @Input() article: Nullable<IBriefArticle> = null
+
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.article)
+  }
 }

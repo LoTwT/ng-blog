@@ -2,6 +2,9 @@
 
 <aphorism></aphorism>
 
-<div class="articleList">
-  <article-item *ngFor="let i of [0, 1, 2, 3, 4, 5, 6, 7, 8]"></article-item>
+<div class="brief-article-list">
+  <article-item
+    *ngFor="let briefArticle of briefArticleList"
+    [article]="briefArticle"
+  ></article-item>
 </div>
