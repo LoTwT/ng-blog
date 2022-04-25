@@ -10,6 +10,9 @@ import { Nullable } from "src/types"
 export class ArticleDetailComponent implements OnInit {
   articleId: Nullable<number> = null
 
+  // todo request
+  article: Nullable<IArticle> = null
+
   constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
@@ -19,5 +22,16 @@ export class ArticleDetailComponent implements OnInit {
       if (isNaN(id)) this.router.navigate(["/404"])
       else this.articleId = id
     })
+
+    // mock
+    this.article = {
+      title: "文章标题",
+      content: "这是文章的内容",
+    }
   }
+}
+
+interface IArticle {
+  title: string
+  content: string
 }
