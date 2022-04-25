@@ -8,6 +8,7 @@ import { MatButtonToggleModule } from "@angular/material/button-toggle"
 import { MatCardModule } from "@angular/material/card"
 import { MatNativeDateModule } from "@angular/material/core"
 import { MatDatepickerModule } from "@angular/material/datepicker"
+import { MatInputModule } from "@angular/material/input"
 
 import { AppComponent } from "./app.component"
 import { NavbarComponent } from "./navbar/navbar.component"
@@ -49,6 +50,7 @@ import { TagListComponent } from "./tag-list/tag-list.component"
     MatCardModule,
     MatNativeDateModule,
     MatDatepickerModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
