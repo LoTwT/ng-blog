@@ -1,1 +1,29 @@
-<p>rank-list works!</p>
+<div class="rank-list">
+  <div class="rank-header">
+    <mat-icon>list</mat-icon>
+    <span class="header-title">热门文章</span>
+  </div>
+
+  <div
+    class="rank-item"
+    *ngFor="
+      let v of [
+        '零',
+        '一',
+        '二',
+        '三',
+        '四',
+        '五',
+        '六',
+        '七',
+        '八',
+        '九',
+        '十'
+      ];
+      let i = index
+    "
+  >
+    <div class="item-index">{{ i }}</div>
+    <div class="item-content">{{ v }}</div>
+  </div>
+</div>
