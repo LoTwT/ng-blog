@@ -1,1 +1,9 @@
-<p>tag-list works!</p>
+<div class="tag-list">
+  <div class="tag-item" *ngFor="let tag of tagList">
+    <mat-icon>{{ tag.icon }}</mat-icon>
+    <span>{{ tag.name }}</span>
+    (
+    <span>{{ tag.sum }}</span>
+    )
+  </div>
+</div>
