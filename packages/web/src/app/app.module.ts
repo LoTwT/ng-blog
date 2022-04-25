@@ -6,7 +6,7 @@ import { MatButtonModule } from "@angular/material/button"
 import { MatIconModule } from "@angular/material/icon"
 import { MatButtonToggleModule } from "@angular/material/button-toggle"
 import { MatCardModule } from "@angular/material/card"
-import { MatNativeDateModule } from "@angular/material/core"
+import { MatNativeDateModule, MAT_DATE_LOCALE } from "@angular/material/core"
 import { MatDatepickerModule } from "@angular/material/datepicker"
 import { MatInputModule } from "@angular/material/input"
 
@@ -52,7 +52,7 @@ import { TagListComponent } from "./tag-list/tag-list.component"
     MatDatepickerModule,
     MatInputModule,
   ],
-  providers: [],
+  providers: [{ provide: MAT_DATE_LOCALE, useValue: "zh-CN" }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
