@@ -1,4 +1,8 @@
-<div *ngIf="article; else articleItemLoading" class="article-item">
+<div
+  *ngIf="article; else articleItemLoading"
+  class="article-item"
+  [routerLink]="'/article/' + article.id"
+>
   <img class="image" [src]="article.img" [alt]="article.title" />
 
   <div class="content">

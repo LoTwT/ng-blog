@@ -1,4 +1,5 @@
 export interface IBriefArticle {
+  id: number
   title: string
   subTitle: string
   img: string

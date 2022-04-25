@@ -30,4 +30,8 @@ export class ArticleDetailComponent implements OnInit {
       content: "这是文章的内容",
     }
   }
+
+  goBack = () => {
+    this.router.navigate(["/"])
+  }
 }
