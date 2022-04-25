@@ -1,1 +1,18 @@
-<p>swiper works!</p>
+<ngb-carousel
+  #carousel
+  [interval]="2000"
+  [pauseOnHover]="pauseOnHover"
+  [pauseOnFocus]="pauseOnFocus"
+  (slide)="onSlide($event)"
+>
+  <ng-template
+    ngbSlide
+    *ngFor="let img of images; index as i"
+    [id]="i.toString()"
+  >
+    <div class="image-wrapper">
+      <img class="image" [src]="img.img" [alt]="img.name" />
+      <div class="hover-title">{{ img.name }}</div>
+    </div>
+  </ng-template>
+</ngb-carousel>

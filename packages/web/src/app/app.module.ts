@@ -10,6 +10,8 @@ import { MatNativeDateModule, MAT_DATE_LOCALE } from "@angular/material/core"
 import { MatDatepickerModule } from "@angular/material/datepicker"
 import { MatInputModule } from "@angular/material/input"
 
+import { NgbCarouselModule } from "@ng-bootstrap/ng-bootstrap"
+
 import { AppComponent } from "./app.component"
 import { NavbarComponent } from "./navbar/navbar.component"
 import { SidetoolsComponent } from "./sidetools/sidetools.component"
@@ -51,6 +53,7 @@ import { TagListComponent } from "./tag-list/tag-list.component"
     MatNativeDateModule,
     MatDatepickerModule,
     MatInputModule,
+    NgbCarouselModule,
   ],
   providers: [{ provide: MAT_DATE_LOCALE, useValue: "zh-CN" }],
   bootstrap: [AppComponent],
