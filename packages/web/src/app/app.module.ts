@@ -25,6 +25,8 @@ import { SideSearchComponent } from "./side-search/side-search.component"
 import { RankListComponent } from "./rank-list/rank-list.component"
 import { AdvertisementComponent } from "./advertisement/advertisement.component"
 import { TagListComponent } from "./tag-list/tag-list.component"
+import { ArticleDetailComponent } from "./article-detail/article-detail.component"
+import { NotFoundComponent } from "./not-found/not-found.component"
 
 @NgModule({
   declarations: [
@@ -41,6 +43,8 @@ import { TagListComponent } from "./tag-list/tag-list.component"
     RankListComponent,
     AdvertisementComponent,
     TagListComponent,
+    ArticleDetailComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
