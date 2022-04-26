@@ -27,6 +27,7 @@ import { AdvertisementComponent } from "./advertisement/advertisement.component"
 import { TagListComponent } from "./tag-list/tag-list.component"
 import { ArticleDetailComponent } from "./article-detail/article-detail.component"
 import { NotFoundComponent } from "./not-found/not-found.component"
+import { HttpClientModule } from "@angular/common/http"
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { NotFoundComponent } from "./not-found/not-found.component"
     MatDatepickerModule,
     MatInputModule,
     NgbCarouselModule,
+    HttpClientModule,
   ],
   providers: [{ provide: MAT_DATE_LOCALE, useValue: "zh-CN" }],
   bootstrap: [AppComponent],
