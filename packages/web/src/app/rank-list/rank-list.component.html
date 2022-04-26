@@ -1,11 +1,13 @@
 <div class="rank-list">
-  <div class="rank-header">
-    <mat-icon>{{ rankList.icon }}</mat-icon>
-    <span class="header-title">{{ rankList.title }}</span>
-  </div>
+  <ng-container *ngIf="rankList">
+    <div class="rank-header">
+      <mat-icon>{{ rankList.icon }}</mat-icon>
+      <span class="header-title">{{ rankList.title }}</span>
+    </div>
 
-  <div class="rank-item" *ngFor="let v of rankList.items; let i = index">
-    <div class="item-index">{{ i + 1 }}</div>
-    <div class="item-content">{{ v.name }}</div>
-  </div>
+    <div class="rank-item" *ngFor="let v of rankList.items; let i = index">
+      <div class="item-index">{{ i + 1 }}</div>
+      <div class="item-content">{{ v.name }}</div>
+    </div>
+  </ng-container>
 </div>
