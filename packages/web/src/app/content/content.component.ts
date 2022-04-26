@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core"
-import { IBriefArticle } from "src/types/article"
+import { IBriefArticle } from "@ng-blog/shared-types"
 
 @Component({
   selector: "app-content",

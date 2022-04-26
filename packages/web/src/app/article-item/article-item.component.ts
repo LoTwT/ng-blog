@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core"
-import { Nullable } from "src/types"
-import { IBriefArticle } from "src/types/article"
+import { Nullable, IBriefArticle } from "@ng-blog/shared-types"
 
 @Component({
   selector: "article-item",

@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core"
 import { ActivatedRoute, Router, NavigationEnd } from "@angular/router"
-import { Nullable } from "src/types"
-import { IArticle } from "src/types/article"
+import { Nullable, IArticle } from "@ng-blog/shared-types"
 
 @Component({
   selector: "article-detail",
