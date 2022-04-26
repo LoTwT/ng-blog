@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from "@angular/core"
+import { Component, Input, OnInit, ViewChild } from "@angular/core"
 import {
   NgbCarousel,
   NgbSlideEvent,
@@ -11,10 +11,7 @@ import {
   styleUrls: ["./swiper.component.less"],
 })
 export class SwiperComponent implements OnInit {
-  images: ISwiperImg[] = [1, 1, 1].map((i) => ({
-    name: "image" + i,
-    img: "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.jj20.com%2Fup%2Fallimg%2F1113%2F052420110515%2F200524110515-11-1200.jpg&refer=http%3A%2F%2Fimg.jj20.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1653462542&t=249b6116d96022c2d2052ee198a6e92f",
-  }))
+  @Input() swipers!: ISwiper[]
 
   currSlide = "123"
 
@@ -61,7 +58,7 @@ export class SwiperComponent implements OnInit {
   }
 }
 
-interface ISwiperImg {
-  name: string
+interface ISwiper {
+  title: string
   img: string
 }

@@ -8,7 +8,7 @@ import {
   Delete,
 } from "@nestjs/common"
 import { ArticleService } from "./article.service"
-import { CreateArticleDto } from "./dto/create-article.dto"
+import { CreateArticleDto } from "./dto/article.dto"
 import { UpdateArticleDto } from "./dto/update-article.dto"
 
 @Controller("article")
@@ -20,14 +20,20 @@ export class ArticleController {
     return this.articleService.create(createArticleDto)
   }
 
+  /**
+   * 热门文章
+   */
   @Get("hot")
-  findHot() {
-    return this.articleService.findHot()
+  findHotList() {
+    return this.articleService.findHotList()
   }
 
-  @Get()
-  findAll() {
-    return this.articleService.findAll()
+  /**
+   * 文章概要列表
+   */
+  @Get("brief/:category")
+  findBriefList(@Param("category") category: string) {
+    return this.articleService.findBriefList(category)
   }
 
   @Get(":id")

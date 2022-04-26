@@ -8,12 +8,12 @@
 >
   <ng-template
     ngbSlide
-    *ngFor="let img of images; index as i"
+    *ngFor="let swiper of swipers; index as i"
     [id]="i.toString()"
   >
     <div class="image-wrapper">
-      <img class="image" [src]="img.img" [alt]="img.name" />
-      <div class="hover-title">{{ img.name }}</div>
+      <img class="image" [src]="swiper.img" [alt]="swiper.title" />
+      <div class="hover-title">{{ swiper.title }}</div>
     </div>
   </ng-template>
 </ngb-carousel>

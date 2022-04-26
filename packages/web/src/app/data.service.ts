@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http"
 import { Injectable } from "@angular/core"
-import { IRankList } from "@ng-blog/shared-types"
+import { IBriefArticle, IRankList } from "@ng-blog/shared-types"
 
 @Injectable({
   providedIn: "root",
@@ -8,5 +8,15 @@ import { IRankList } from "@ng-blog/shared-types"
 export class DataService {
   constructor(private http: HttpClient) {}
 
-  getHotArticles = () => this.http.get<IRankList>("/api/article/hot")
+  /**
+   * 文章概要列表
+   * @param { string } category todo construct enum
+   */
+  getBriefArticleList = (category: string) =>
+    this.http.get<IBriefArticle[]>(`/api/article/brief/${category}`)
+
+  /**
+   * 热门文章
+   */
+  getHotArticleList = () => this.http.get<IRankList>("/api/article/hot")
 }

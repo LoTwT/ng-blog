@@ -14,7 +14,7 @@ export class AddonComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataService
-      .getHotArticles()
+      .getHotArticleList()
       .subscribe((hotArticles) => (this.hotArticles = hotArticles))
   }
 }
