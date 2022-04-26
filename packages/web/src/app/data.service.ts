@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http"
 import { Injectable } from "@angular/core"
-import { IBriefArticle, IRankList } from "@ng-blog/shared-types"
+import { IAphorism, IBriefArticle, IRankList } from "@ng-blog/shared-types"
 
 @Injectable({
   providedIn: "root",
@@ -19,4 +19,10 @@ export class DataService {
    * 热门文章
    */
   getHotArticleList = () => this.http.get<IRankList>("/api/article/hot")
+
+  /**
+   * 名言警句
+   */
+  getAphorismList = (count = 6) =>
+    this.http.get<IAphorism[]>(`/api/aphorism?count=${count}`)
 }

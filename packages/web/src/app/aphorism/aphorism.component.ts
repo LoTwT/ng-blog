@@ -1,4 +1,5 @@
-import { Component, OnInit } from "@angular/core"
+import { Component, Input, OnInit } from "@angular/core"
+import { IAphorism } from "@ng-blog/shared-types"
 
 @Component({
   selector: "aphorism",
@@ -6,6 +7,8 @@ import { Component, OnInit } from "@angular/core"
   styleUrls: ["./aphorism.component.less"],
 })
 export class AphorismComponent implements OnInit {
+  @Input() aphorisms!: IAphorism[]
+
   constructor() {}
 
   ngOnInit(): void {}

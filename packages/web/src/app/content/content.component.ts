@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core"
-import { IBriefArticle } from "@ng-blog/shared-types"
+import { IAphorism, IBriefArticle } from "@ng-blog/shared-types"
 import { DataService } from "../data.service"
 
 @Component({
@@ -9,6 +9,7 @@ import { DataService } from "../data.service"
 })
 export class ContentComponent implements OnInit {
   briefArticleList!: IBriefArticle[]
+  aphorismList!: IAphorism[]
 
   constructor(private dataService: DataService) {}
 
@@ -16,5 +17,9 @@ export class ContentComponent implements OnInit {
     this.dataService
       .getBriefArticleList("default")
       .subscribe((data) => (this.briefArticleList = data))
+
+    this.dataService
+      .getAphorismList()
+      .subscribe((data) => (this.aphorismList = data))
   }
 }
