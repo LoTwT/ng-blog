@@ -8,5 +8,5 @@ import { IRankList } from "@ng-blog/shared-types"
 export class DataService {
   constructor(private http: HttpClient) {}
 
-  getHotArticles = () => this.http.get<IRankList>("api/hot")
+  getHotArticles = () => this.http.get<IRankList>("/api/hot-articles")
 }

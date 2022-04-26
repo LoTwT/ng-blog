@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core"
+import { IRankList } from "@ng-blog/shared-types"
+import { DataService } from "../data.service"
 
 @Component({
   selector: "app-addon",
@@ -6,7 +8,13 @@ import { Component, OnInit } from "@angular/core"
   styleUrls: ["./addon.component.less"],
 })
 export class AddonComponent implements OnInit {
-  constructor() {}
+  hotArticles!: IRankList
 
-  ngOnInit(): void {}
+  constructor(private dataService: DataService) {}
+
+  ngOnInit(): void {
+    this.dataService
+      .getHotArticles()
+      .subscribe((hotArticles) => (this.hotArticles = hotArticles))
+  }
 }

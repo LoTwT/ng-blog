@@ -1,4 +1,5 @@
-import { Component, OnInit } from "@angular/core"
+import { Component, Input, OnInit } from "@angular/core"
+import { IRankList } from "@ng-blog/shared-types"
 
 @Component({
   selector: "rank-list",
@@ -6,6 +7,8 @@ import { Component, OnInit } from "@angular/core"
   styleUrls: ["./rank-list.component.less"],
 })
 export class RankListComponent implements OnInit {
+  @Input() rankList!: IRankList
+
   constructor() {}
 
   ngOnInit(): void {}
