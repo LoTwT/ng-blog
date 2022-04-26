@@ -9,4 +9,8 @@ export class SidetoolsComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  backToTop = () => {
+    window.scrollTo(0, 0)
+  }
 }

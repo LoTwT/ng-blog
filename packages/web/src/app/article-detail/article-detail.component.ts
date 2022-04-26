@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core"
-import { ActivatedRoute, Router } from "@angular/router"
+import { ActivatedRoute, Router, NavigationEnd } from "@angular/router"
 import { Nullable } from "src/types"
 import { IArticle } from "src/types/article"
 
@@ -14,9 +14,7 @@ export class ArticleDetailComponent implements OnInit {
   // todo request
   article: Nullable<IArticle> = null
 
-  constructor(private route: ActivatedRoute, private router: Router) {}
-
-  ngOnInit(): void {
+  constructor(private route: ActivatedRoute, private router: Router) {
     this.route.paramMap.subscribe((p) => {
       const id = Number(p.get("id"))
 
@@ -24,6 +22,14 @@ export class ArticleDetailComponent implements OnInit {
       else this.articleId = id
     })
 
+    this.router.events.subscribe((e) => {
+      if (e instanceof NavigationEnd) {
+        window.scrollTo(0, 0)
+      }
+    })
+  }
+
+  ngOnInit(): void {
     // mock
     this.article = {
       title: "文章标题",
