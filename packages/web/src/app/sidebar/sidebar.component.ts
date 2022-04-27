@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core"
+import { Router } from "@angular/router"
 import { IArticleCategory } from "@ng-blog/shared-types"
 import { DataService } from "../data.service"
 
@@ -11,7 +12,7 @@ export class SidebarComponent implements OnInit {
   categories!: IArticleCategory[]
   currCategory: string = ""
 
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService, private router: Router) {}
 
   ngOnInit(): void {
     this.dataService.getArticleCategories().subscribe((data) => {
@@ -22,6 +23,7 @@ export class SidebarComponent implements OnInit {
   }
 
   onCategoryClick = (cate: string) => {
+    if (this.router.url !== "/") this.router.navigateByUrl("/")
     this.currCategory = cate
     this.dataService.setCategory(this.currCategory)
   }
