@@ -41,6 +41,16 @@ export class ArticleService {
     }))
   }
 
+  search(content: string) {
+    return {
+      data:
+        (content
+          ? `你搜索的内容是 [ ${content} ]`
+          : "无效的搜索内容 或 错误的 query") +
+        ` => 时间：${new Date().toLocaleString()}`,
+    }
+  }
+
   findOne(id: number) {
     return `This action returns a #${id} article`
   }

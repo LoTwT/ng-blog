@@ -25,4 +25,10 @@ export class DataService {
    */
   getAphorismList = (count = 6) =>
     this.http.get<IAphorism[]>(`/api/aphorism?count=${count}`)
+
+  /**
+   * 搜索
+   */
+  searchArticle = (content: string) =>
+    this.http.get<{ data: string }>(`/api/article/search?content=${content}`)
 }

@@ -6,6 +6,7 @@ import {
   Patch,
   Param,
   Delete,
+  Query,
 } from "@nestjs/common"
 import { ArticleService } from "./article.service"
 import { CreateArticleDto } from "./dto/article.dto"
@@ -34,6 +35,14 @@ export class ArticleController {
   @Get("brief/:category")
   findBriefList(@Param("category") category: string) {
     return this.articleService.findBriefList(category)
+  }
+
+  /**
+   * 搜索
+   */
+  @Get("search")
+  search(@Query("content") content: string) {
+    return this.articleService.search(content)
   }
 
   @Get(":id")
