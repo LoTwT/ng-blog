@@ -9,7 +9,7 @@ export class HotArticlesDto implements IRankList {
 }
 
 export class BriefArticlesDto implements IBriefArticle {
-  id: number
+  id: string
   title: string
   subTitle: string
   img: string

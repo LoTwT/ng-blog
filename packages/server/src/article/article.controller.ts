@@ -45,9 +45,17 @@ export class ArticleController {
     return this.articleService.search(content)
   }
 
+  /**
+   * 文章类别
+   */
+  @Get("category")
+  getCategories() {
+    return this.articleService.getCategories()
+  }
+
   @Get(":id")
   findOne(@Param("id") id: string) {
-    return this.articleService.findOne(+id)
+    return this.articleService.findOne(id)
   }
 
   @Patch(":id")

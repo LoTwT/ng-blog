@@ -9,7 +9,7 @@ import { DataService } from "../data.service"
   styleUrls: ["./article-detail.component.less"],
 })
 export class ArticleDetailComponent implements OnInit {
-  articleId!: number
+  articleId!: string
 
   article!: Nullable<IArticle>
 
@@ -19,10 +19,15 @@ export class ArticleDetailComponent implements OnInit {
     private dataService: DataService,
   ) {
     this.route.paramMap.subscribe((p) => {
-      const id = Number(p.get("id"))
+      // const id = Number(p.get("id"))
 
-      if (isNaN(id)) this.router.navigate(["/404"])
-      else this.articleId = id
+      // if (isNaN(id)) this.router.navigate(["/404"])
+      // else this.articleId = id
+
+      const id = p.get("id")
+
+      if (id) this.articleId = id
+      else this.router.navigate(["/404"])
     })
 
     this.router.events.subscribe((e) => {

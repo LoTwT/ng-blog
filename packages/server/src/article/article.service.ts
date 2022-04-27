@@ -1,5 +1,5 @@
 import { Injectable } from "@nestjs/common"
-import { IArticle } from "@ng-blog/shared-types"
+import { IArticle, IArticleCategory } from "@ng-blog/shared-types"
 import {
   BriefArticlesDto,
   CreateArticleDto,
@@ -24,9 +24,11 @@ export class ArticleService {
   }
 
   findBriefList(category: string): BriefArticlesDto[] {
+    const getId = (index: number) => `${category}-${index}`
+
     return new Array(6).fill(0).map((_, index) => ({
-      id: index,
-      title: `category:${category},id:${index}`,
+      id: getId(index),
+      title: `category:${category}, id:${getId(index)}`,
       subTitle: "带我走，去风里",
       img: "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.jj20.com%2Fup%2Fallimg%2F1113%2F052420110515%2F200524110515-2-1200.jpg&refer=http%3A%2F%2Fimg.jj20.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1653384807&t=87598e840ee20c2bc1d1d2fc5246b5b1",
       createAtIcon: "watch_later",
@@ -52,7 +54,16 @@ export class ArticleService {
     }
   }
 
-  findOne(id: number): IArticle {
+  getCategories(): IArticleCategory[] {
+    return new Array(8).fill(0).map((_, i) => ({
+      category: `category${i + 1}`,
+      label: `类别 ${i + 1}`,
+      hasDivider: i === 4 || i === 5,
+      icon: "home",
+    }))
+  }
+
+  findOne(id: string): IArticle {
     return {
       title: `文章 #${id} 的标题`,
       content: `文章 ${id} 的内容`,

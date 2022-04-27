@@ -1,5 +1,5 @@
 export interface IBriefArticle {
-  id: number
+  id: string
   title: string
   subTitle: string
   img: string
@@ -23,4 +23,11 @@ export interface IBriefArticle {
 export interface IArticle {
   title: string
   content: string
+}
+
+export interface IArticleCategory {
+  icon: string
+  category: string
+  label: string
+  hasDivider: boolean
 }

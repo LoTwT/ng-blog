@@ -4,15 +4,31 @@ import {
   IAdvertisement,
   IAphorism,
   IArticle,
+  IArticleCategory,
   IBriefArticle,
   IRankList,
 } from "@ng-blog/shared-types"
+import { BehaviorSubject, from, Observable, of } from "rxjs"
 
 @Injectable({
   providedIn: "root",
 })
 export class DataService {
   constructor(private http: HttpClient) {}
+
+  private _category = new BehaviorSubject<string>("")
+
+  getCategory = () => {
+    return this._category
+  }
+
+  setCategory = (cate: string) => this._category.next(cate)
+
+  /**
+   * 文章类别
+   */
+  getArticleCategories = () =>
+    this.http.get<IArticleCategory[]>("/api/article/category")
 
   /**
    * 文章概要列表
@@ -29,7 +45,7 @@ export class DataService {
   /**
    * 文章详情
    */
-  getArticleDetail = (id: number) =>
+  getArticleDetail = (id: string) =>
     this.http.get<IArticle>(`/api/article/${id}`)
 
   /**

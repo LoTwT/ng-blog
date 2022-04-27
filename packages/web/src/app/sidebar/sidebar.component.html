@@ -1,22 +1,17 @@
 <mat-button-toggle-group class="button-group">
-  <mat-button-toggle value="home">
-    <div class="button-content">
-      <mat-icon class="content-icon">home</mat-icon>
-      <span class="content-text">正殿</span>
-    </div>
-  </mat-button-toggle>
-
-  <mat-button-toggle value="njs">
-    <div class="button-content">
-      <mat-icon class="content-icon">home</mat-icon>
-      <span class="content-text">宁静寺</span>
-    </div>
-  </mat-button-toggle>
-
-  <mat-button-toggle value="kbg">
-    <div class="button-content">
-      <mat-icon class="content-icon">home</mat-icon>
-      <span class="content-text">空宝阁</span>
-    </div>
-  </mat-button-toggle>
+  <ng-container *ngFor="let c of categories">
+    <mat-button-toggle [value]="c.category">
+      <div
+        class="button-content"
+        [ngClass]="c.hasDivider ? 'button-divider' : ''"
+        [ngClass]="
+          currCategory === c.category ? 'mat-button-toggle-checked' : ''
+        "
+        (click)="onCategoryClick(c.category)"
+      >
+        <mat-icon class="content-icon">{{ c.icon }}</mat-icon>
+        <span class="content-text">{{ c.label }}</span>
+      </div>
+    </mat-button-toggle>
+  </ng-container>
 </mat-button-toggle-group>

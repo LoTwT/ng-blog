@@ -15,11 +15,14 @@ export class ContentComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataService
-      .getBriefArticleList("default")
-      .subscribe((data) => (this.briefArticleList = data))
-
-    this.dataService
       .getAphorismList()
       .subscribe((data) => (this.aphorismList = data))
+
+    this.dataService.getCategory().subscribe((cate) => {
+      cate !== "" &&
+        this.dataService
+          .getBriefArticleList(cate)
+          .subscribe((data) => (this.briefArticleList = data))
+    })
   }
 }
