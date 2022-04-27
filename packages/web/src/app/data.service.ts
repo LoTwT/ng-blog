@@ -1,6 +1,11 @@
 import { HttpClient } from "@angular/common/http"
 import { Injectable } from "@angular/core"
-import { IAphorism, IBriefArticle, IRankList } from "@ng-blog/shared-types"
+import {
+  IAdvertisement,
+  IAphorism,
+  IBriefArticle,
+  IRankList,
+} from "@ng-blog/shared-types"
 
 @Injectable({
   providedIn: "root",
@@ -31,4 +36,9 @@ export class DataService {
    */
   searchArticle = (content: string) =>
     this.http.get<{ data: string }>(`/api/article/search?content=${content}`)
+
+  /**
+   * 广告
+   */
+  getAd = () => this.http.get<IAdvertisement>("/api/ad")
 }

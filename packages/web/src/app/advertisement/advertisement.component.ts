@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core"
+import { IAdvertisement } from "@ng-blog/shared-types"
+import { DataService } from "../data.service"
 
 @Component({
   selector: "advertisement",
@@ -6,7 +8,11 @@ import { Component, OnInit } from "@angular/core"
   styleUrls: ["./advertisement.component.less"],
 })
 export class AdvertisementComponent implements OnInit {
-  constructor() {}
+  ad!: IAdvertisement
 
-  ngOnInit(): void {}
+  constructor(private dataService: DataService) {}
+
+  ngOnInit(): void {
+    this.dataService.getAd().subscribe((data) => (this.ad = data))
+  }
 }
