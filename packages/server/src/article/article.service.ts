@@ -1,4 +1,5 @@
 import { Injectable } from "@nestjs/common"
+import { IArticle } from "@ng-blog/shared-types"
 import {
   BriefArticlesDto,
   CreateArticleDto,
@@ -51,8 +52,11 @@ export class ArticleService {
     }
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} article`
+  findOne(id: number): IArticle {
+    return {
+      title: `文章 #${id} 的标题`,
+      content: `文章 ${id} 的内容`,
+    }
   }
 
   update(id: number, updateArticleDto: UpdateArticleDto) {

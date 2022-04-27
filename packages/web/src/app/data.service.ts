@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core"
 import {
   IAdvertisement,
   IAphorism,
+  IArticle,
   IBriefArticle,
   IRankList,
 } from "@ng-blog/shared-types"
@@ -24,6 +25,12 @@ export class DataService {
    * 热门文章
    */
   getHotArticleList = () => this.http.get<IRankList>("/api/article/hot")
+
+  /**
+   * 文章详情
+   */
+  getArticleDetail = (id: number) =>
+    this.http.get<IArticle>(`/api/article/${id}`)
 
   /**
    * 名言警句

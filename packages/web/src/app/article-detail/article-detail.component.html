@@ -1,6 +1,6 @@
 <div *ngIf="article; else articleLoading" class="article-detaile">
   <button mat-raised-button color="primary" (click)="goBack()">go back.</button>
-  <div>{{ articleId }}</div>
+  <div>articleId: {{ articleId }}</div>
   <div class="title">{{ article.title }}</div>
   <div class="content">{{ article.content }}</div>
 </div>

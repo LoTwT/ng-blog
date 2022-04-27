@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core"
 import { ActivatedRoute, Router, NavigationEnd } from "@angular/router"
 import { Nullable, IArticle } from "@ng-blog/shared-types"
+import { DataService } from "../data.service"
 
 @Component({
   selector: "article-detail",
@@ -8,12 +9,15 @@ import { Nullable, IArticle } from "@ng-blog/shared-types"
   styleUrls: ["./article-detail.component.less"],
 })
 export class ArticleDetailComponent implements OnInit {
-  articleId: Nullable<number> = null
+  articleId!: number
 
-  // todo request
-  article: Nullable<IArticle> = null
+  article!: Nullable<IArticle>
 
-  constructor(private route: ActivatedRoute, private router: Router) {
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private dataService: DataService,
+  ) {
     this.route.paramMap.subscribe((p) => {
       const id = Number(p.get("id"))
 
@@ -29,11 +33,9 @@ export class ArticleDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // mock
-    this.article = {
-      title: "文章标题",
-      content: "这是文章的内容",
-    }
+    this.dataService
+      .getArticleDetail(this.articleId)
+      .subscribe((data) => (this.article = data))
   }
 
   goBack = () => {
