@@ -23,7 +23,7 @@ export class SideSearchComponent implements OnInit {
       data: this.searchStr,
     })
 
-    dialogRef.afterClosed().subscribe(() => {})
+    dialogRef.afterClosed().subscribe(() => (this.searchStr = ""))
   }
 }
 
