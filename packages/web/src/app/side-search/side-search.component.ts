@@ -1,4 +1,9 @@
-import { Component, OnInit } from "@angular/core"
+import { Component, Inject, OnInit } from "@angular/core"
+import {
+  MatDialog,
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+} from "@angular/material/dialog"
 
 @Component({
   selector: "side-search",
@@ -6,7 +11,35 @@ import { Component, OnInit } from "@angular/core"
   styleUrls: ["./side-search.component.less"],
 })
 export class SideSearchComponent implements OnInit {
-  constructor() {}
+  searchStr = ""
+
+  constructor(private dialog: MatDialog) {}
 
   ngOnInit(): void {}
+
+  showDialog = () => {
+    console.log(this.searchStr)
+
+    const dialogRef = this.dialog.open(SideSearchDialog, {
+      data: this.searchStr,
+    })
+
+    dialogRef.afterClosed().subscribe(() => {})
+  }
+}
+
+@Component({
+  selector: "side-search-dialog",
+  templateUrl: "./dialog/side-search-dialog.html",
+  styleUrls: ["./dialog/side-search-dialog.less"],
+})
+export class SideSearchDialog {
+  constructor(
+    public dialogRef: MatDialogRef<SideSearchDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: string,
+  ) {}
+
+  closeDialog() {
+    this.dialogRef.close()
+  }
 }

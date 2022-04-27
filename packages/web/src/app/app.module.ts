@@ -1,4 +1,5 @@
 import { NgModule } from "@angular/core"
+import { FormsModule } from "@angular/forms"
 import { BrowserModule } from "@angular/platform-browser"
 import { AppRoutingModule } from "./app-routing.module"
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
@@ -9,6 +10,8 @@ import { MatCardModule } from "@angular/material/card"
 import { MatNativeDateModule, MAT_DATE_LOCALE } from "@angular/material/core"
 import { MatDatepickerModule } from "@angular/material/datepicker"
 import { MatInputModule } from "@angular/material/input"
+import { MatDialogModule } from "@angular/material/dialog"
+import { HttpClientModule } from "@angular/common/http"
 
 import { NgbCarouselModule } from "@ng-bootstrap/ng-bootstrap"
 
@@ -21,13 +24,15 @@ import { AddonComponent } from "./addon/addon.component"
 import { AphorismComponent } from "./aphorism/aphorism.component"
 import { SwiperComponent } from "./swiper/swiper.component"
 import { ArticleItemComponent } from "./article-item/article-item.component"
-import { SideSearchComponent } from "./side-search/side-search.component"
+import {
+  SideSearchComponent,
+  SideSearchDialog,
+} from "./side-search/side-search.component"
 import { RankListComponent } from "./rank-list/rank-list.component"
 import { AdvertisementComponent } from "./advertisement/advertisement.component"
 import { TagListComponent } from "./tag-list/tag-list.component"
 import { ArticleDetailComponent } from "./article-detail/article-detail.component"
 import { NotFoundComponent } from "./not-found/not-found.component"
-import { HttpClientModule } from "@angular/common/http"
 
 @NgModule({
   declarations: [
@@ -46,6 +51,7 @@ import { HttpClientModule } from "@angular/common/http"
     TagListComponent,
     ArticleDetailComponent,
     NotFoundComponent,
+    SideSearchDialog,
   ],
   imports: [
     BrowserModule,
@@ -60,6 +66,8 @@ import { HttpClientModule } from "@angular/common/http"
     MatInputModule,
     NgbCarouselModule,
     HttpClientModule,
+    MatDialogModule,
+    FormsModule,
   ],
   providers: [{ provide: MAT_DATE_LOCALE, useValue: "zh-CN" }],
   bootstrap: [AppComponent],

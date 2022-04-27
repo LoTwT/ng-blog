@@ -1,13 +1,14 @@
 <div class="side-search">
   <div class="search-bar">
     <input
+      [(ngModel)]="searchStr"
       mat-input
       class="search-input"
       type="text"
       placeholder="向外探索，向内觉知"
     />
 
-    <button class="search-button" mat-button>
+    <button class="search-button" mat-button (click)="showDialog()">
       <mat-icon>search</mat-icon>
     </button>
   </div>
