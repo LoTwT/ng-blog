@@ -1,6 +1,8 @@
 <div class="advertisement">
   <ng-container *ngIf="ad">
-    <img class="image" [src]="ad.img" [alt]="ad.title" />
+    <a class="image-link" [href]="ad.img" target="_blank">
+      <img class="image" [src]="ad.img" [alt]="ad.title" />
+    </a>
     <div class="logo">{{ ad.annotation }}</div>
   </ng-container>
 </div>
