@@ -21,7 +21,10 @@ import { SidetoolsComponent } from "./sidetools/sidetools.component"
 import { SidebarComponent } from "./sidebar/sidebar.component"
 import { ContentComponent } from "./content/content.component"
 import { AddonComponent } from "./addon/addon.component"
-import { AphorismComponent } from "./aphorism/aphorism.component"
+import {
+  AphorismComponent,
+  AphorismDialog,
+} from "./aphorism/aphorism.component"
 import { SwiperComponent } from "./swiper/swiper.component"
 import { ArticleItemComponent } from "./article-item/article-item.component"
 import {
@@ -52,6 +55,7 @@ import { NotFoundComponent } from "./not-found/not-found.component"
     ArticleDetailComponent,
     NotFoundComponent,
     SideSearchDialog,
+    AphorismDialog,
   ],
   imports: [
     BrowserModule,

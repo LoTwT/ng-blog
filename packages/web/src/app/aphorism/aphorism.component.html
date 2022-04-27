@@ -2,6 +2,8 @@
   <ng-container *ngIf="aphorisms">
     <mat-icon class="schedule">schedule</mat-icon>
     <span class="text">{{ aphorisms[0].content }}</span>
-    <mat-icon class="more">unfold_more</mat-icon>
+    <button mat-icon-button class="more" (click)="showDialog()">
+      <mat-icon>unfold_more</mat-icon>
+    </button>
   </ng-container>
 </div>

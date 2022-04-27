@@ -1,0 +1,8 @@
+<div class="aphorism-dialog">
+  <ng-container *ngFor="let aphorism of data; index as i">
+    <div class="aphorism-item">
+      <span>{{ i + 1 }}</span> <span> => </span>
+      <span>{{ aphorism.content }}</span>
+    </div>
+  </ng-container>
+</div>
