@@ -9,3 +9,49 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id   Int    @id @unique @default(autoincrement())
+  name String @unique
+
+  articles Article[]
+
+  createAt DateTime @default(now()) @map("create_at")
+  updateAt DateTime @updatedAt @map("update_at")
+
+  @@map("users")
+}
+
+model Article {
+  id       String @id @unique @default(uuid())
+  title    String
+  subTitle String @map("sub_title")
+  img      String
+
+  createAt DateTime @default(now()) @map("create_at")
+  updateAt DateTime @updatedAt @map("update_at")
+
+  watchCount   Int @default(0) @map("watch_count")
+  commentCount Int @default(0) @map("comment_count")
+  favorCount   Int @default(0) @map("favor_count")
+
+  author   User? @relation(fields: [authorId], references: [id])
+  authorId Int?
+
+  detailId String?
+  detail   ArticleDetail?
+
+  @@map("articles")
+}
+
+model ArticleDetail {
+  id String @id @unique @default(uuid())
+
+  title   String
+  content String
+
+  article Article? @relation(fields: [id, title], references: [detailId, title])
+
+  createAt DateTime @default(now()) @map("create_at")
+  updateAt DateTime @updatedAt @map("update_at")
+}
