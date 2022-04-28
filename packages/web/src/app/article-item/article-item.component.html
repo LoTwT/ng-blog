@@ -12,31 +12,41 @@
       <!-- 创建时间 -->
       <div class="info-item">
         <mat-icon class="info-item-icon">{{ article.createAtIcon }}</mat-icon>
-        <span class="info-item-text">{{ article.createAt }}</span>
+        <span class="info-item-text" [title]="article.createAt">
+          {{ article.createAt }}
+        </span>
       </div>
 
       <!-- 阅读数 -->
       <div class="info-item">
         <mat-icon class="info-item-icon">{{ article.watchIcon }}</mat-icon>
-        <span class="info-item-text">{{ article.watchCount }}</span>
+        <span class="info-item-text" [title]="article.watchCount">
+          {{ article.watchCount }}
+        </span>
       </div>
 
       <!-- 评论数 -->
       <div class="info-item">
         <mat-icon class="info-item-icon">{{ article.commentIcon }}</mat-icon>
-        <span class="info-item-text">{{ article.commentCount }}</span>
+        <span class="info-item-text" [title]="article.commentCount">
+          {{ article.commentCount }}
+        </span>
       </div>
 
       <!-- 点赞数 -->
       <div class="info-item">
         <mat-icon class="info-item-icon">{{ article.favorIcon }}</mat-icon>
-        <span class="info-item-text">{{ article.favorCount }}</span>
+        <span class="info-item-text" [title]="article.favorCount">
+          {{ article.favorCount }}
+        </span>
       </div>
 
       <!-- 作者 -->
       <div class="info-item">
         <mat-icon class="info-item-icon">{{ article.authorIcon }}</mat-icon>
-        <span class="info-item-text">{{ article.author }}</span>
+        <span class="info-item-text" [title]="article.author">
+          {{ article.author }}
+        </span>
       </div>
     </div>
   </div>
