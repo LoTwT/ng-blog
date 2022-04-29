@@ -59,6 +59,7 @@ export class SwiperComponent implements OnInit {
 }
 
 interface ISwiper {
+  id: string
   title: string
   img: string
 }

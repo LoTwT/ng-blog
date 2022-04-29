@@ -11,7 +11,7 @@
     *ngFor="let swiper of swipers; index as i"
     [id]="i.toString()"
   >
-    <div class="image-wrapper">
+    <div class="image-wrapper" [routerLink]="['/article', swiper.id]">
       <img class="image" [src]="swiper.img" [alt]="swiper.title" />
       <div class="hover-title">{{ swiper.title }}</div>
     </div>
