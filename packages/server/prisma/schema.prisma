@@ -14,7 +14,8 @@ model User {
   id   Int    @id @unique @default(autoincrement())
   name String @unique
 
-  articles Article[]
+  articleBriefs ArticleBrief[]
+  articleDetail ArticleDetail?
 
   createAt DateTime @default(now()) @map("create_at")
   updateAt DateTime @updatedAt @map("update_at")
@@ -22,7 +23,7 @@ model User {
   @@map("users")
 }
 
-model Article {
+model ArticleBrief {
   id       String @id @unique @default(uuid())
   title    String
   subTitle String @map("sub_title")
@@ -41,7 +42,7 @@ model Article {
   detailId String?
   detail   ArticleDetail?
 
-  @@map("articles")
+  @@map("article_brief")
 }
 
 model ArticleDetail {
@@ -50,8 +51,13 @@ model ArticleDetail {
   title   String
   content String
 
-  article Article? @relation(fields: [id, title], references: [detailId, title])
+  articleBrief ArticleBrief? @relation(fields: [id, title], references: [detailId, title])
+
+  author   User? @relation(fields: [authorId], references: [id])
+  authorId Int?  @unique
 
   createAt DateTime @default(now()) @map("create_at")
   updateAt DateTime @updatedAt @map("update_at")
+
+  @@map("article_detail")
 }
