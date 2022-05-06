@@ -1,5 +1,6 @@
 import { Injectable } from "@nestjs/common"
 import { PrismaService } from "src/prisma.service"
+import { CreateGAdvertisementInput } from "./dto/create-g-advertisement.dto"
 
 const BASE_URL =
   "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.jj20.com%2Fup%2Fallimg"
@@ -7,6 +8,10 @@ const BASE_URL =
 @Injectable()
 export class GAdvertisementService {
   constructor(private prisma: PrismaService) {}
+
+  async createOne(data: CreateGAdvertisementInput) {
+    return this.prisma.advertisement.create({ data })
+  }
 
   async findOne() {
     const count = await this.prisma.advertisement.count()
