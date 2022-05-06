@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common"
 import { IAdvertisement } from "@ng-blog/shared-types"
-import { AdvertisementDto } from "./dto/advertisement.dto"
-import { UpdateAdvertisementDto } from "./dto/update-advertisement.dto"
+import { PrismaService } from "src/prisma.service"
+import { Prisma } from "@prisma/client"
 
 const ads: IAdvertisement[] = [
   "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.jj20.com%2Fup%2Fallimg%2F1114%2F113020142315%2F201130142315-1-1200.jpg&refer=http%3A%2F%2Fimg.jj20.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1653632494&t=9196e931a4683dafeb37d4cbe093b6e6",
@@ -15,26 +15,29 @@ const ads: IAdvertisement[] = [
   annotation: `广告 ${i + 1}`,
 }))
 
+const BASE_URL =
+  "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.jj20.com%2Fup%2Fallimg"
+
 @Injectable()
 export class AdvertisementService {
-  create(createAdvertisementDto: AdvertisementDto) {
-    return "This action adds a new advertisement"
+  constructor(private prisma: PrismaService) {}
+
+  async findOne() {
+    const count = await this.prisma.advertisement.count()
+    const randomId = (Math.floor(Math.random() * 10) % count) + 1
+
+    const data = await this.prisma.advertisement.findUnique({
+      where: {
+        id: randomId,
+      },
+    })
+
+    data.img = BASE_URL + data.img
+
+    return data
   }
 
-  findRandomOne(): IAdvertisement {
-    const random = Math.floor(Math.random() * 10) % ads.length
-    return ads[random]
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} advertisement`
-  }
-
-  update(id: number, updateAdvertisementDto: UpdateAdvertisementDto) {
-    return `This action updates a #${id} advertisement`
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} advertisement`
+  async createOne(data: Prisma.AdvertisementCreateInput) {
+    return this.prisma.advertisement.create({ data })
   }
 }
