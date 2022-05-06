@@ -13,6 +13,10 @@ export class AdvertisementComponent implements OnInit {
   constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
-    this.dataService.getAd().subscribe((data) => (this.ad = data))
+    // this.dataService.getAd().subscribe((data) => (this.ad = data))
+
+    this.dataService
+      .getGAd(["img", "title", "annotation"])
+      .subscribe((d) => (this.ad = d.data.ad))
   }
 }

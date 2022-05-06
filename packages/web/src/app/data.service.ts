@@ -64,4 +64,27 @@ export class DataService {
    * 广告
    */
   getAd = () => this.http.get<IAdvertisement>("/api/ad")
+
+  getGAd = <T extends keyof IGAd>(query: T[]) =>
+    this.http.get<GAdResponse<typeof query>>("/api/graphql", {
+      params: {
+        query: `
+        {
+          ad {
+            ${query.join(" ")}
+          }
+        }
+      `,
+      },
+    })
+}
+
+interface IGAd extends IAdvertisement {
+  id: number
+}
+
+type GAdResponse<T extends string[]> = {
+  data: {
+    ad: Record<T[number], any>
+  }
 }
