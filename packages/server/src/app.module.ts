@@ -8,7 +8,6 @@ import { PrismaService } from "./prisma.service"
 
 import { GraphQLModule } from "@nestjs/graphql"
 import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo"
-import { GArticleModule } from "./g-article/g-article.module"
 import { GAdvertisementModule } from "./g-advertisement/g-advertisement.module"
 
 @Module({
@@ -20,7 +19,6 @@ import { GAdvertisementModule } from "./g-advertisement/g-advertisement.module"
       driver: ApolloDriver,
       autoSchemaFile: true,
     }),
-    GArticleModule,
     GAdvertisementModule,
   ],
   controllers: [AppController],
