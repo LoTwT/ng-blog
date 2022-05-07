@@ -15,8 +15,18 @@ export class AdvertisementComponent implements OnInit {
   ngOnInit(): void {
     // this.dataService.getAd().subscribe((data) => (this.ad = data))
 
+    // this.dataService
+    //   .getGAd(["img", "title", "annotation"])
+    //   .subscribe((d) => (this.ad = d.data.ad))
+
     this.dataService
-      .getGAd(["img", "title", "annotation"])
-      .subscribe((d) => (this.ad = d.data.ad))
+      .queryGraphql<"ad", keyof IGAd>("ad", ["img", "title", "annotation"])
+      .subscribe((d) => {
+        this.ad = d.data.ad
+      })
   }
+}
+
+interface IGAd extends IAdvertisement {
+  id: number
 }

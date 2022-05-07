@@ -65,26 +65,40 @@ export class DataService {
    */
   getAd = () => this.http.get<IAdvertisement>("/api/ad")
 
-  getGAd = <T extends keyof IGAd>(query: T[]) =>
-    this.http.get<GAdResponse<typeof query>>("/api/graphql", {
-      params: {
-        query: `
-        {
-          ad {
-            ${query.join(" ")}
-          }
-        }
-      `,
-      },
-    })
+  // getGAd = <T extends keyof IGAd>(query: T[]) =>
+  //   this.http.post<GAdResponse<typeof query>>("/api/graphql", {
+  //     query: `{ad {${query.join(" ")}}}`,
+  //   })
+
+  queryGraphql = <T extends string, F extends string>(
+    resource: T,
+    fields: F[],
+  ) => {
+    const { body } = useGraphqlQuery(resource, fields)
+    return this.http.post<GResponse<typeof resource, F>>(GRAPHQL_BASE_URL, body)
+  }
 }
 
-interface IGAd extends IAdvertisement {
-  id: number
-}
+// interface IGAd extends IAdvertisement {
+//   id: number
+// }
 
-type GAdResponse<T extends string[]> = {
+// type GAdResponse<T extends string[]> = {
+//   data: {
+//     ad: Record<T[number], any>
+//   }
+// }
+
+const GRAPHQL_BASE_URL = "/api/graphql"
+
+const useGraphqlQuery = <T extends string>(resource: string, fields: T[]) => ({
+  body: {
+    query: `{${resource}{${fields.join(" ")}}}`,
+  },
+})
+
+type GResponse<Resource extends string, Fields extends string> = {
   data: {
-    ad: Record<T[number], any>
+    [P in Resource]: Record<Fields, any>
   }
 }
