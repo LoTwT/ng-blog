@@ -7,7 +7,7 @@ import {
   FindAphorismsInput,
   RemoveAphorismInput,
   UpdateAphorismInput,
-} from "./dto/create-g-aphorism.input"
+} from "./dto/g-aphorism.input"
 
 @Resolver(() => GAphorism)
 export class GAphorismResolver {
@@ -22,7 +22,8 @@ export class GAphorismResolver {
 
   @Query(() => [GAphorism])
   findAphorisms(
-    @Args("findAphorismsInput") findAphorismsInput: FindAphorismsInput,
+    @Args("findAphorismsInput", { nullable: true })
+    findAphorismsInput?: FindAphorismsInput,
   ) {
     return this.gAphorismService.findSome(findAphorismsInput)
   }

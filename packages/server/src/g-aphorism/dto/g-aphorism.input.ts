@@ -22,10 +22,10 @@ export class FindAphorismInput implements Pick<IGAphorism, "id"> {
 @InputType()
 export class FindAphorismsInput {
   @Field(() => Int, { nullable: true })
-  count: number
+  take?: number
 
-  @Field(() => Int, { defaultValue: 0 })
-  offset: number
+  @Field(() => Int, { nullable: true })
+  skip?: number
 }
 
 @InputType()
