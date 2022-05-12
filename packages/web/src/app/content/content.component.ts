@@ -9,14 +9,14 @@ import { DataService } from "../data.service"
 })
 export class ContentComponent implements OnInit {
   briefArticleList!: IBriefArticle[]
-  aphorismList!: IAphorism[]
+  // aphorismList!: IAphorism[]
 
   constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
-    this.dataService
-      .getAphorismList()
-      .subscribe((data) => (this.aphorismList = data))
+    // this.dataService
+    //   .getAphorismList()
+    //   .subscribe((data) => (this.aphorismList = data))
 
     this.dataService.getCategory().subscribe((cate) => {
       cate !== "" &&

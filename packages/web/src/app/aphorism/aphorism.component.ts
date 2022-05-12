@@ -1,6 +1,14 @@
 import { Component, Inject, Input, OnInit } from "@angular/core"
 import { MatDialog, MAT_DIALOG_DATA } from "@angular/material/dialog"
 import { IAphorism } from "@ng-blog/shared-types"
+import { DataService } from "../data.service"
+
+interface IGAphorism {
+  id: number
+  content: string
+  createAt: string
+  updateAt: string
+}
 
 @Component({
   selector: "aphorism",
@@ -8,11 +16,21 @@ import { IAphorism } from "@ng-blog/shared-types"
   styleUrls: ["./aphorism.component.less"],
 })
 export class AphorismComponent implements OnInit {
-  @Input() aphorisms!: IAphorism[]
+  aphorisms!: IGAphorism[]
 
-  constructor(private dialog: MatDialog) {}
+  constructor(private dialog: MatDialog, private dataService: DataService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.dataService
+      .queryGraphql<"findAphorisms", keyof IGAphorism>("findAphorisms", [
+        "id",
+        "content",
+      ])
+      .subscribe(
+        (d) =>
+          (this.aphorisms = d.data.findAphorisms as unknown as IGAphorism[]),
+      )
+  }
 
   showDialog = () => this.dialog.open(AphorismDialog, { data: this.aphorisms })
 }
