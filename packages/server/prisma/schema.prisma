@@ -65,9 +65,20 @@ model ArticleDetail {
 model Advertisement {
   id Int @id @unique @default(autoincrement())
 
-  title String
-  img   String
+  title      String
+  img        String
   annotation String @default("广告")
 
   @@map("advertisement")
+}
+
+model Aphorism {
+  id Int @id @unique @default(autoincrement())
+
+  content String
+
+  createAt DateTime @default(now()) @map("create_at")
+  updateAt DateTime @updatedAt @map("update_at")
+
+  @@map("aphorism")
 }
