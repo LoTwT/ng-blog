@@ -123,6 +123,7 @@ importers:
       karma-jasmine: ~5.0.1
       karma-jasmine-html-reporter: ~1.7.0
       normalize.css: ^8.0.1
+      ohmygraphql: ^0.0.2
       rxjs: ~7.5.5
       tslib: ^2.4.0
       typescript: ~4.6.4
@@ -143,6 +144,7 @@ importers:
       '@popperjs/core': 2.11.5
       bootstrap: 5.1.3_@popperjs+core@2.11.5
       normalize.css: 8.0.1
+      ohmygraphql: 0.0.2
       rxjs: 7.5.5
       tslib: 2.4.0
       zone.js: 0.11.5
@@ -2245,7 +2247,7 @@ packages:
       collect-v8-coverage: 1.0.1
       exit: 0.1.2
       glob: 7.2.0
-      graceful-fs: 4.2.10
+      graceful-fs: mirrors.tencent.com/graceful-fs/4.2.10
       istanbul-lib-coverage: 3.2.0
       istanbul-lib-instrument: 5.2.0
       istanbul-lib-report: 3.0.0
@@ -2275,7 +2277,7 @@ packages:
     dependencies:
       '@jridgewell/trace-mapping': 0.3.9
       callsites: 3.1.0
-      graceful-fs: 4.2.10
+      graceful-fs: mirrors.tencent.com/graceful-fs/4.2.10
     dev: true
 
   /@jest/test-result/28.1.0:
@@ -2293,7 +2295,7 @@ packages:
     engines: {node: ^12.13.0 || ^14.15.0 || ^16.10.0 || >=17.0.0}
     dependencies:
       '@jest/test-result': 28.1.0
-      graceful-fs: 4.2.10
+      graceful-fs: mirrors.tencent.com/graceful-fs/4.2.10
       jest-haste-map: 28.1.0
       slash: 3.0.0
     dev: true
@@ -2309,7 +2311,7 @@ packages:
       chalk: 4.1.2
       convert-source-map: 1.8.0
       fast-json-stable-stringify: 2.1.0
-      graceful-fs: 4.2.10
+      graceful-fs: mirrors.tencent.com/graceful-fs/4.2.10
       jest-haste-map: 28.1.0
       jest-regex-util: 28.0.2
       jest-util: 28.1.0
@@ -3777,7 +3779,7 @@ packages:
       babel-plugin-istanbul: 6.1.1
       babel-preset-jest: 28.0.2_@babel+core@7.17.10
       chalk: 4.1.2
-      graceful-fs: 4.2.10
+      graceful-fs: mirrors.tencent.com/graceful-fs/4.2.10
       slash: 3.0.0
     transitivePeerDependencies:
       - supports-color
@@ -6496,7 +6498,7 @@ packages:
       ci-info: 3.3.0
       deepmerge: 4.2.2
       glob: 7.2.0
-      graceful-fs: 4.2.10
+      graceful-fs: mirrors.tencent.com/graceful-fs/4.2.10
       jest-circus: 28.1.0
       jest-environment-node: 28.1.0
       jest-get-type: 28.0.2
@@ -6584,14 +6586,14 @@ packages:
       '@types/node': 17.0.33
       anymatch: 3.1.2
       fb-watchman: 2.0.1
-      graceful-fs: 4.2.10
+      graceful-fs: mirrors.tencent.com/graceful-fs/4.2.10
       jest-regex-util: 28.0.2
       jest-util: 28.1.0
       jest-worker: 28.1.0
       micromatch: 4.0.5
       walker: 1.0.8
     optionalDependencies:
-      fsevents: 2.3.2
+      fsevents: mirrors.tencent.com/fsevents/2.3.2
     dev: true
 
   /jest-leak-detector/28.1.0:
@@ -6630,7 +6632,7 @@ packages:
       '@jest/types': 28.1.0
       '@types/stack-utils': 2.0.1
       chalk: 4.1.2
-      graceful-fs: 4.2.10
+      graceful-fs: mirrors.tencent.com/graceful-fs/4.2.10
       micromatch: 4.0.5
       pretty-format: 28.1.0
       slash: 3.0.0
@@ -6677,7 +6679,7 @@ packages:
     engines: {node: ^12.13.0 || ^14.15.0 || ^16.10.0 || >=17.0.0}
     dependencies:
       chalk: 4.1.2
-      graceful-fs: 4.2.10
+      graceful-fs: mirrors.tencent.com/graceful-fs/4.2.10
       jest-haste-map: 28.1.0
       jest-pnp-resolver: 1.2.2_jest-resolve@28.1.0
       jest-util: 28.1.0
@@ -6699,7 +6701,7 @@ packages:
       '@types/node': 17.0.33
       chalk: 4.1.2
       emittery: 0.10.2
-      graceful-fs: 4.2.10
+      graceful-fs: mirrors.tencent.com/graceful-fs/4.2.10
       jest-docblock: 28.0.2
       jest-environment-node: 28.1.0
       jest-haste-map: 28.1.0
@@ -6732,7 +6734,7 @@ packages:
       collect-v8-coverage: 1.0.1
       execa: 5.1.1
       glob: 7.2.0
-      graceful-fs: 4.2.10
+      graceful-fs: mirrors.tencent.com/graceful-fs/4.2.10
       jest-haste-map: 28.1.0
       jest-message-util: 28.1.0
       jest-mock: 28.1.0
@@ -6763,7 +6765,7 @@ packages:
       babel-preset-current-node-syntax: 1.0.1_@babel+core@7.17.10
       chalk: 4.1.2
       expect: 28.1.0
-      graceful-fs: 4.2.10
+      graceful-fs: mirrors.tencent.com/graceful-fs/4.2.10
       jest-diff: 28.1.0
       jest-get-type: 28.0.2
       jest-haste-map: 28.1.0
@@ -7389,6 +7391,7 @@ packages:
     resolution: {integrity: sha512-x0Vn8spI+wuJ1O6S7gnbaQg8Pxh4NNHb7KSINmEWKiPE4RKOplvijn+NkmYmmRgP68mc70j2EbeTFRsrswaQeg==}
     engines: {node: '>=4'}
     hasBin: true
+    requiresBuild: true
 
   /mime/2.6.0:
     resolution: {integrity: sha512-USPkMeET31rOMiarsBNIHZKLGgvKc/LrjofAnBlOttf5ajRvqiRA8QsenbcooctK6d6Ts6aqZXBA+XbkKthiQg==}
@@ -7807,6 +7810,10 @@ packages:
   /obuf/1.1.2:
     resolution: {integrity: sha512-PX1wu0AmAdPqOL1mWhqmlOd8kOIZQwGZw6rh7uby9fTc5lhaOWFLX3I6R1hrF9k3zUY40e6igsLGkDXK92LJNg==}
     dev: true
+
+  /ohmygraphql/0.0.2:
+    resolution: {integrity: sha512-Uvy8s5xYAQj3hkQHP7mnrCrq4iPPqPmZyvtpC4oXfqq2A4pQ8jBmPrnusEobq9d79o5EMu9vlCxMNGOeAI9boQ==}
+    dev: false
 
   /on-finished/2.3.0:
     resolution: {integrity: sha512-ikqdkGAAyf/X/gPhXGvfgAytDZtDbr+bkNUJ0N9h5MI/dmdgCs3l6hoHrcUv41sRKew3jIwrp4qQDXiK99Utww==}
@@ -10372,3 +10379,19 @@ packages:
     dependencies:
       tslib: 2.4.0
     dev: false
+
+  mirrors.tencent.com/fsevents/2.3.2:
+    resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==, registry: https://mirrors.cloud.tencent.com/npm/, tarball: https://mirrors.tencent.com/npm/fsevents/-/fsevents-2.3.2.tgz}
+    name: fsevents
+    version: 2.3.2
+    engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  mirrors.tencent.com/graceful-fs/4.2.10:
+    resolution: {integrity: sha512-9ByhssR2fPVsNZj478qUUbKfmL0+t5BDVyjShtyZZLiK7ZDAArFFfopyOTj0M05wE2tJPisA4iTnnXl2YoPvOA==, registry: https://mirrors.cloud.tencent.com/npm/, tarball: https://mirrors.tencent.com/npm/graceful-fs/-/graceful-fs-4.2.10.tgz}
+    name: graceful-fs
+    version: 4.2.10
+    dev: true
