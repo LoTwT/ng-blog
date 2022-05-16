@@ -21,15 +21,19 @@ export class AphorismComponent implements OnInit {
   constructor(private dialog: MatDialog, private dataService: DataService) {}
 
   ngOnInit(): void {
+    // this.dataService
+    //   .queryGraphql<"findAphorisms", keyof IGAphorism>("findAphorisms", [
+    //     "id",
+    //     "content",
+    //   ])
+    //   .subscribe(
+    //     (d) =>
+    //       (this.aphorisms = d.data.findAphorisms as unknown as IGAphorism[]),
+    //   )
+
     this.dataService
-      .queryGraphql<"findAphorisms", keyof IGAphorism>("findAphorisms", [
-        "id",
-        "content",
-      ])
-      .subscribe(
-        (d) =>
-          (this.aphorisms = d.data.findAphorisms as unknown as IGAphorism[]),
-      )
+      .getGAphorisms()
+      .subscribe((d) => (this.aphorisms = (d as any).data.findAphorisms))
   }
 
   showDialog = () => this.dialog.open(AphorismDialog, { data: this.aphorisms })

@@ -9,6 +9,7 @@ import {
   IRankList,
 } from "@ng-blog/shared-types"
 import { BehaviorSubject, from, Observable, of } from "rxjs"
+import { useGraphql } from "ohmygraphql"
 
 @Injectable({
   providedIn: "root",
@@ -76,6 +77,25 @@ export class DataService {
   ) => {
     const { body } = useGraphqlQuery(resource, fields)
     return this.http.post<GResponse<typeof resource, F>>(GRAPHQL_BASE_URL, body)
+  }
+
+  getGAphorisms = () => {
+    const query = useGraphql<{
+      id: number
+      content: string
+      createAt: string
+      updateAt: string
+    }>({
+      operation: "query",
+      params: {
+        action: {
+          type: "findAphorisms",
+        },
+        fields: ["id", "content"],
+      },
+    })
+
+    return this.http.post(GRAPHQL_BASE_URL, { query })
   }
 }
 
