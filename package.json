@@ -6,7 +6,7 @@
   "packageManager": "pnpm@7.0.0",
   "scripts": {
     "prettier": "prettier --write .",
-    "postinstall": "husky install"
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
